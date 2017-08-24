@@ -1,25 +1,29 @@
 'use strict'
+// important webpack concepts entry output plugins loaders
 
-const ExtractPlugin = require('extract-text-webpack-plugin')
 const HTMLPlugin = require('html-webpack-plugin')
+const ExtractPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    historyApiFallback: true,
+  },
   entry: `${__dirname}/src/main.js`,
   output: {
-    filename: 'bundle-[hash].js',
-    path: `${__dirname}/build`,
     publicPath: '/',
+    path: `${__dirname}/build`,
+    filename: 'bundle-[hash].js',
   },
   plugins: [
-    new HTMLPlugin(),
     new ExtractPlugin('bundle-[hash].css'),
+    new HTMLPlugin({template: `${__dirname}/src/index.html`}),
   ],
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_module/,
+        test:  /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
