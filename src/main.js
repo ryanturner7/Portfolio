@@ -39,8 +39,4 @@ class App extends React.Component {
   }
 }
 
-// identical statements
-//<DashboardContainer app={this.getApp()} />
-//new DashboardContainer({app: this.getApp()})
-
 ReactDom.render(<App title='' />, document.getElementById('root'))
