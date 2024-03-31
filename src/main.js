@@ -39,4 +39,9 @@ class App extends React.Component {
   }
 }
 
-ReactDom.render(<App title='' />, document.getElementById('root'))
+ReactDom.render(<App title='' />, document.getElementById('root'));
+
+document.getElementByID.innerHTML('index'){
+   this.getApp = this.getApp.bind(this)
+   this.elementID = this.js;
+}
